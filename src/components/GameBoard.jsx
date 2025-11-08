@@ -16,7 +16,7 @@ export default function GameBoard({
     <div className="mt-12 flex w-full flex-col items-center gap-12">
       <section className="w-full max-w-5xl rounded-[38px] bg-[#b1251e] px-6 py-8 sm:px-10 sm:py-10 md:p-12 shadow-[0_40px_80px_rgba(133,32,21,0.35)]">
         <div className="flex flex-col items-center gap-4 text-center">
-          <h1 className="text-5xl text-[_rgba(248,180,107,0.55)] font-black uppercase leading-tight text-ember drop-shadow-[0_10px_25px_rgba(120,33,15,0.35)] sm:text-6xl">
+          <h1 className="text-5xl text-[#fbca93] font-black uppercase leading-tight drop-shadow-[0_10px_25px_rgba(120,33,15,0.35)] sm:text-6xl">
             The Tic-Tac-Toe Game
           </h1>
         </div>
@@ -54,4 +54,3 @@ export default function GameBoard({
     </div>
   )
 }
-
