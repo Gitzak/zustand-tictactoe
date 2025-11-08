@@ -1,16 +1,48 @@
-# React + Vite
+<img width="1919" height="907" alt="Screenshot 2025-11-06 105720" src="https://github.com/user-attachments/assets/265d5a56-427e-41df-971b-fcc678d655b8" />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Game Overview
 
-Currently, two official plugins are available:
+This **Tic-Tac-Toe** app is a small interactive game built with **React** and **Vite**.  
+You play on a **3x3 grid**, taking turns as **X** or **O** until someone gets three in a row or the board fills up with a draw.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The game lives inside the `src/` folder:
 
-## Expanding the ESLint configuration
+- **`src/App.tsx`** – Renders the full page layout.  
+- **`src/components/Board.tsx`** – Draws the 3x3 grid and handles clicks.  
+- **`src/components/Square.tsx`** – Shows each square’s current symbol.  
+- **`src/store/gameStore.ts`** – Keeps the shared game state in a Zustand store.  
+- **`src/styles/`** – Holds Tailwind utility styles used across the app.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## State Management
+
+**Zustand** provides a lightweight store so every component can read the same game state.  
+The store tracks:
+
+- Whose turn it is  
+- The board’s nine squares  
+- Whether someone has won  
+- Helpers to reset the game or jump to a fresh round  
+
+Components subscribe to the store and **re-render only when the parts they care about change**, keeping the UI fast and efficient.
+
+---
+
+## Game Flow
+
+1. The board starts empty with player **X**.  
+2. Players alternate turns by clicking empty squares.  
+3. After every move, the store checks for a **win** or **draw** and updates the status banner.  
+4. A **reset button** clears the board and switches the starting player for the next round.
+
+---
+
+## Styling
+
+**Tailwind CSS** handles spacing, layout, and colors.  
+The board uses **responsive flexbox utilities** so it stays centered on different screen sizes.
